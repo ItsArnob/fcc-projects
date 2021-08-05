@@ -1,0 +1,35 @@
+*,
+*:before,
+*:after {
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+* {
+    font-family: 'poppins', sans-serif;
+    color:#424874;
+}
+body {
+    background: #DCD6F7;
+}
+.container {
+    margin: 50px 10px;
+    border-radius:8px;
+    background: #F4EEFF;
+    box-shadow: 5px 5px 10px rgb(210, 204, 240), -5px -5px 10px rgb(210, 204, 240);
+    padding: 10px 15px;
+}
+.text-center {
+    text-align:center;
+}
+.font-regular {
+    font-weight:400;
+}
+hr {
+    border: 0; 
+    height: 1px; 
+    background: #424874;
+    border-radius:5px;
+    margin: 15px 25px;
+    opacity:0.5;
+}
