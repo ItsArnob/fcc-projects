@@ -3,6 +3,9 @@
     <head>
         <meta charset="UTF-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Developers survey 2021 - demo </title>
+        <meta name="description" content="A project for the fcc responsive web certification">
+        <meta name="theme-color" content="#DCD6F7">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap " rel="stylesheet">
@@ -13,10 +16,97 @@
         <header>
             <h1 id="title" class="text-center font-regular" style="margin:15px 0">Welcome to the 2021 developer survey!</h1>
             <p id="description" class="text-center"><em>Thank you for taking the time to fill out this survey. This data will be used to make statistics about the developers of 2021 (excluding the email & name).</em></p>
+            <p class="text-center"> <em>This is just a demo. Entered data will not be saved.</em></p>
         </header>
-        <hr>
+        
         <form id="survey-form">
-            <input type="text" id="name" placeholder="name" required>
+            <hr>
+            <div class="relative mb-20">
+                <input type="text" id="name" name="name" placeholder="Name" class="text-input" required>
+                <label id="name-label" for="name" class="text-label"> Name </label>
+            </div>
+            <div class="relative mb-20">
+                <input type="email" id="email" name="email" placeholder="Email" class="text-input" required>
+                <label id="email-label" for="email" class="text-label"> Email </label>
+            </div>
+            <div class="relative mb-20">
+                <input type="number" id="number" name="age" placeholder="Age (optional)" class="text-input" min="0" max="200">
+                <label id="number-label" for="number" class="text-label"> Age (optional) </label>
+            </div>
+            <div class="relative mb-20">
+                <select id="dropdown" class="text-input" name="role" required>
+                    <option disabled selected value> Select an option</option>
+                    <option value="student"> Student </option>
+                    <option value="fullJob"> Full-time job </option>
+                    <option value="partJob"> part-time job </option>
+                    <option value="fullLearn"> Full-time learner </option>
+                    <option value="other"> Other </option>
+                    <option value="preferNo" default> Prefer not to say</option>
+                </select>
+                <div class="text-label"> Role that describes you best </div>
+            </div>
+            <div class="relative mb-20">
+                
+                <select class="text-input" name="os" required>
+                    <option disabled selected value> Select an option</option>
+                    <option value="windows">Windows </option>
+                    <option value="linux">Linux-based </option>
+                    <option value="mac">MacOS </option>
+                    <option value="other">Other </option>
+                </select>
+                <div class="text-label"> What is the primary operating system in which you work? </div>
+            </div>
+            <div class="mb-20">
+                <p>Do you use any version control system? (e.g. git)</p>
+                <label class="radio-label">
+                    <input name="usesVersionControlSystem" value="true" type="radio" class="radio" required />Yes
+                     
+                </label>
+                <label class="radio-label">
+                    <input name="usesVersionControlSystem" value="false" type="radio" class="radio"/> No                     
+                </label>
+            </div>
+            <div class="mb-20">
+                <p>Favourite languages:</p>
+                <label class="checkbox-label">
+                    <input name="favLang" value="js" type="checkbox"/>JavaScript
+                </label>
+                <label class="checkbox-label">
+                    <input name="favLang" value="htmlcss" type="checkbox"/>HTML/CSS
+                </label>
+                <label class="checkbox-label">
+                    <input name="favLang" value="ts" type="checkbox"/>TypeScript
+                </label>
+                <label class="checkbox-label">
+                    <input name="favLang" value="py" type="checkbox"/>Python
+                </label>
+                <label class="checkbox-label">
+                    <input name="favLang" value="go" type="checkbox"/>Go
+                </label>
+                <label class="checkbox-label">
+                    <input name="favLang" value="java" type="checkbox"/>Java
+                </label>
+                <label class="checkbox-label">
+                    <input name="favLang" value="kotlin" type="checkbox"/>Kotlin
+                </label>
+                <label class="checkbox-label">
+                    <input name="favLang" value="c" type="checkbox"/>C
+                </label>
+                <label class="checkbox-label">
+                    <input name="favLang" value="cpp" type="checkbox"/>C++
+                </label>
+                <label class="checkbox-label">
+                    <input name="favLang" value="cs" type="checkbox"/>C#
+                </label>
+                <label class="checkbox-label">
+                    <input name="favLang" value="rust" type="checkbox"/>Rust
+                </label>
+            </div>
+            <div class="relative">
+                <textarea id="comment" class="text-input textarea-input" placeholder="Additional comments (optional)"></textarea>
+                <label for="comment" class="text-label"> Additional comments (optional) </label>
+            </div>
+            <button type="submit" id="submit">Submit!</button>
         </form>
     </div>
     
