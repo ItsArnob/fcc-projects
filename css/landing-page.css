@@ -14,6 +14,7 @@
   --main-height: 750px;
   --app-heading-margin: 30px auto 40px auto;
   --app-heading-text: center;
+  --link-justify: center;
   scroll-behavior: smooth;
   background: linear-gradient(to right, #60a5fa, #5b21b6);
 }
@@ -24,10 +25,14 @@
     --main-height: 500px;
     --app-heading-margin: auto 0 auto 30px;
     --app-heading-text: left;
+    --link-justify: '';
   }
 }
 * {
   font-family: "poppins", sans-serif;
+}
+.link-container {
+  justify-content: var(--link-justify);
 }
 #header {
   padding: 10px 5px;
@@ -81,9 +86,7 @@ main {
 .flex {
   display: flex;
 }
-.link-ceontainer {
-  justify-content: center;
-}
+
 #app-heading a {
   margin-top: 20px;
   padding: 10px;
