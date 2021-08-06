@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo taskify - landing page</title>
+    <meta
+      name="description"
+      content="Todo taskify - landing page (fcc project)"
+    />
+    <meta name="theme-color" content="#CHANGETHIS" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap "
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/fcc-projects/css/landing-page.css" />
+  </head>
+  <body>
+    <header id="header">
+      <nav id="nav-bar">
+        <a class="logo nav-link" href="#intro">
+          <img
+            id="header-img"
+            src="/fcc-projects/public/todo-taskify-icon.png"
+            alt="todo-taskify icon"
+            width="30px"
+          />
+          Todo taskify
+        </a>
+        <a class="nav-link" href="#features"> Features </a>
+        <a class="nav-link" href="#showcase"> Showcase </a>
+      </nav>
+    </header>
+    <main>
+      <section id="intro">
+        <div id="app-heading">
+          <h1>Todo taskify.</h1>
+          <p>A simple todo lists app with beautiful UI & smooth transitions.</p>
+          <div class="flex link-container">
+            <a id="open-app-btn" href="https://todo-taskify.web.app">
+              Open todo taskify
+              <svg
+                width="20px"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
+                />
+                <path
+                  d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
+                />
+              </svg>
+            </a>
+            <a
+              id="open-gh-btn"
+              target="_blank"
+              href="https://todo-taskify.web.app"
+              ><img src="/fcc-projects/public/gh.png" height="25px" /> GitHub
+              <svg
+                width="20px"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
+                />
+                <path
+                  d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
+                /></svg
+            ></a>
+          </div>
+        </div>
+        <img
+          id="taskify-app"
+          src="/fcc-projects/public/todo-taskify.jpg"
+          alt="todo taskify app screenshot"
+        />
+      </section>
+      <section id="features">
+        <div class="features-content">
+          <h2 class="text-center">FEATURES & INFO</h2>
+          <div class="cards">
+            <div class="card">
+              <h3>beautiful UI.</h3>
+              <p>
+                Todo taskify is made with translucent design, simplicity &
+                smooth transitions in mind, made to be similar to a native app.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Manage lists.</h3>
+              <p>
+                Todo taskify comes with 3 tabs(i.e. active, done & create) for
+                organizing & creating lists. You can also easily edit, mark as
+                done/active & delete specific lists from their dropdown menu!
+              </p>
+            </div>
+            <div class="card">
+              <h3>Get notified.</h3>
+              <p>
+                Get notifications about your lists at specific time simply by
+                setting the "Notify me" field to a certain date in the list
+                creation/edit page.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Access from anywhere, anytime. (big words)</h3>
+              <p>
+                You can access your lists from any modern browser simply by
+                logging into your account. You can also manage your lists even
+                without a internet connection! (with some limitations)
+              </p>
+            </div>
+          </div>
+          <p class="text-center" style="font-size: 18px">
+            todo taskify is built using vue 3, firebase & tailwindCSS for the
+            ones wondering :)
+          </p>
+        </div>
+      </section>
+      <section id="showcase">
+        <div id="showcase-content">
+          <h2 class="text-center">SHOWCASE & SIGN UP</h2>
+
+          <h3 class="text-center" style="margin-top: 10px">
+            Heres a showcase video of the UI & transitions
+          </h3>
+          <p class="text-center" style="margin-top: 5px">
+            This video also shows how to create, modify & delete a list.
+          </p>
+
+          <iframe
+            style="width: 100%; height: 320px; margin-top: 15px"
+            id="video"
+            src="https://www.youtube-nocookie.com/embed/OCWj5xgu5Ng"
+            title="YouTube video player"
+            frameborder="0"
+          ></iframe>
+          <h3 class="text-center" style="margin-top: 10px">
+            Sign up for the newsletter.
+          </h3>
+          <form id="form" action="https://www.freecodecamp.com/email-submit">
+            <div class="relative mb-20 input-container">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                class="text-input"
+                required
+              />
+              <label id="email-label" for="email" class="text-label">
+                Email
+              </label>
+              <input type="submit" id="submit" />
+            </div>
+          </form>
+          <h2 style="margin: 20px 0 10px 0" class="text-center">CREDITS</h2>
+          <p class="text-center">
+            The background image in the
+            <a href="#intro" class="a">first section</a> is from
+            <a class="a" href="https://hector.me/wavey" target="_blank"
+              >https://hector.me/wavey</a
+            >
+            and the icons are from
+            <a class="a" href="https://heroicons.com" target="_blank"
+              >heroicons.</a
+            >
+          </p>
+        </div>
+      </section>
+    </main>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
