@@ -1,0 +1,11 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tailwindcss -m -o ../css/portfolio.css",
+    "start": "tailwindcss -w -o ../css/portfolio.css"
+  },
+  "devDependencies": {
+    "tailwindcss": "^2.2.7"
+  }
+}
