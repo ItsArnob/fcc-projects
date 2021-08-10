@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="h-full">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue 3 - get started</title>
+        <meta
+            name="description"
+            content="Get started with vue 3, setup tailwindCSS & use vite dev server with nodeJS."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap "
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/fcc-projects/css/technical-doc.css" />
+    </head>
+    <body
+        class="
+            bg-white
+            text-gray-800
+            dark:bg-gray-800 dark:text-gray-200
+            flex
+            h-full
+        "
+    >
+        <nav
+            id="navbar"
+            class="
+                border-r border-gray-400 border-opacity-30
+                h-full
+                flex flex-col
+                pt-12
+            "
+        >
+            <header
+                class="
+                    bg-white
+                    border-gray-400 border-opacity-30
+                    text-2xl
+                    dark:bg-gray-800
+                    border-b
+                    fixed
+                    top-0
+                    left-0
+                    w-full
+                    p-2
+                    text-center text-gray-700
+                    dark:text-white
+                    font-semibold
+                "
+            >
+                Vue 3 Guide
+            </header>
+            <div class="h-full overflow-y-auto">
+                <a
+                    onclick="highlight(this, event)"
+                    data-linked="introduction"
+                    class="nav-link mt-2"
+                    href="#introduction"
+                    >Introduction</a
+                >
+                <a
+                    onclick="highlight(this, event)"
+                    data-linked="what_you_should_already_know"
+                    style="white-space: nowrap"
+                    class="nav-link"
+                    href="#what_you_should_already_know"
+                    >What You Should Already Know</a
+                >
+                <a
+                    onclick="highlight(this, event)"
+                    data-linked="installation_and_setup"
+                    class="nav-link"
+                    href="#installation_and_setup"
+                    >Installation and Setup</a
+                >
+                <a
+                    onclick="highlight(this, event)"
+                    data-linked="understanding_the_boilerplate"
+                    class="nav-link"
+                    href="#understanding_the_boilerplate"
+                    >Understanding The Boilerplate</a
+                >
+                <a
+                    onclick="highlight(this, event)"
+                    data-linked="declarative_rendering"
+                    class="nav-link"
+                    href="#declarative_rendering"
+                    >Declarative Rendering</a
+                >
+                <a
+                    onclick="highlight(this, event)"
+                    data-linked="handling_user_input"
+                    class="nav-link"
+                    href="#handling_user_input"
+                    >Handling User Input</a
+                >
+                <a
+                    onclick="highlight(this, event)"
+                    data-linked="conditionals_and_loops"
+                    class="nav-link"
+                    href="#conditionals_and_loops"
+                    >Conditionals and Loops</a
+                >
+                <a
+                    onclick="highlight(this, event)"
+                    data-linked="using_vite_with_nodejs"
+                    class="nav-link mb-2"
+                    href="#using_vite_with_nodejs"
+                    >Using Vite With NodeJS</a
+                >
+            </div>
+        </nav>
+        <main id="main-doc" class="h-full w-full flex flex-col">
+            <div id="sections" class="mt-12 h-full overflow-y-auto">
+                <section id="introduction" class="main-section">
+                    <header>Introduction</header>
+                    <p class="p-6">test lorwm</p>
+                    <p class="p-6">test ipsum</p>
+                    <p class="p-6">w</p>
+                    <p class="p-6">a a aa</p>
+                    <p class="p-6">s s s</p>
+                    <p class="p-6">s e e</p>
+                    <p class="mt-36">d d e e</p>
+                    <p class="mt-36">e e e</p>
+                    <p>s e e e</p>
+                    <p>e e e e</p>
+                </section>
+                <section id="what_you_should_already_know" class="main-section">
+                    <header>What You Should Already Know</header>
+                    <code>keke ekek</code>
+                    <code> kek </code>
+                    <code> h </code>
+                    <code>h </code>
+                    <code>eee</code>
+                </section>
+                <section id="installation_and_setup" class="main-section">
+                    <header>Installation And Setup</header>
+                    <ul>
+                        <li>a</li>
+                        <li>b</li>
+                        <li>c</li>
+                        <li>d</li>
+                        <li>e</li>
+                    </ul>
+                </section>
+                <section
+                    id="understanding_the_boilerplate"
+                    class="main-section"
+                >
+                    <header>Understanding The Boilerplate</header>
+                </section>
+                <section id="declarative_rendering" class="main-section">
+                    <header>Declarative Rendering</header>
+                </section>
+                <section id="handling_user_input" class="main-section">
+                    <header>Handling User Input</header>
+                </section>
+                <section id="conditionals_and_loops" class="main-section">
+                    <header>Conditionals And Loops</header>
+                </section>
+                <section id="using_vite_with_nodejs" class="main-section">
+                    <header>Using Vite With NodeJS</header>
+                </section>
+            </div>
+        </main>
+        <script defer>
+            if (!location.hash) {
+                location.hash = "introduction";
+                document
+                    .querySelector(".nav-link[data-linked='introduction']")
+                    .setAttribute("id", "active");
+            } else {
+                document
+                    .querySelector(
+                        `.nav-link[data-linked='${location.hash.replace(
+                            "#",
+                            ""
+                        )}']`
+                    )
+                    .setAttribute("id", "active");
+                document
+                    .getElementById(location.hash.replace("#", ""))
+                    .scrollIntoView({
+                        behavior: "smooth",
+                    });
+            }
+            /* credit: https://stackoverflow.com/a/58981159/16038792 */
+            const observer = new window.IntersectionObserver(
+                ([entry], observer) => {
+                    console.log(entry.boundingClientRect.top);
+                    if (entry.isIntersecting) {
+                        return;
+                    }
+                    console.log("Leave");
+                    if (entry.boundingClientRect.top > 0) {
+                        const prevDiv = entry.target.previousElementSibling;
+                        observer.unobserve(entry.target);
+                        document
+                            .querySelector("#active")
+                            .setAttribute("id", "");
+                        document
+                            .querySelector(
+                                `.nav-link[data-linked=${prevDiv.id}]`
+                            )
+                            .setAttribute("id", "active");
+                        observer.observe(prevDiv);
+                    } else {
+                        const nextDiv = entry.target.nextElementSibling;
+                        observer.unobserve(entry.target);
+                        document
+                            .querySelector("#active")
+                            .setAttribute("id", "");
+                        document
+                            .querySelector(
+                                `.nav-link[data-linked=${nextDiv.id}]`
+                            )
+                            .setAttribute("id", "active");
+
+                        observer.observe(nextDiv);
+                    }
+                },
+                {
+                    root: null,
+                    threshold: 0,
+                }
+            );
+            setTimeout(() => {
+                observer.observe(
+                    document.getElementById(location.hash.replace("#", ""))
+                );
+            }, 1000);
+
+            function highlight(el, event) {
+                observer.disconnect();
+                document.querySelector("#active").setAttribute("id", "");
+                el.setAttribute("id", "active");
+                observer.observe(
+                    document.getElementById(el.getAttribute("data-linked"))
+                );
+            }
+        </script>
+
+        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    </body>
+</html>
