@@ -537,9 +537,19 @@
                 if (localStorage.theme == "dark") {
                     document.documentElement.classList.remove("dark");
                     localStorage.theme = "light";
-                } else {
+                } else if(localStorage.theme == "light") {
                     document.documentElement.classList.add("dark");
                     localStorage.theme = "dark";
+                }
+                else {
+                    if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                        document.documentElement.classList.remove("dark");
+                        localStorage.theme = "light";
+                    }
+                    else {
+                        document.documentElement.classList.add("dark");
+                        localStorage.theme = "dark";
+                    }
                 }
                 window.getComputedStyle(css).opacity;
                 document.head.removeChild(css);
