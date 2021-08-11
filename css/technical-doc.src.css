@@ -8,12 +8,17 @@
 }
 @layer components {
     .nav-link {
-        @apply block transition duration-75 mb-1 border-l-4 p-2 border-transparent hover:border-gray-400 hover:bg-gray-100 hover:bg-opacity-60 dark:hover:border-gray-500 dark:hover:bg-gray-700 dark:hover:bg-opacity-50;
+        @apply block transition whitespace-nowrap duration-75 mb-1 border-l-4 p-2 border-transparent hover:border-gray-400 hover:bg-gray-100 hover:bg-opacity-60 dark:hover:border-gray-500 dark:hover:bg-gray-700 dark:hover:bg-opacity-50;
     }
     #active {
         @apply bg-gray-100 bg-opacity-70 text-green-500 border-green-500 dark:bg-gray-700 dark:bg-opacity-70 dark:text-green-400 dark:border-green-400;
     }
     .main-section {
-        @apply border-t-2 pb-36;
+        @apply border-t-2;
     }
+    .navOpen {
+        @apply w-[300px] border-r-2;
+        box-shadow:0 8px 15px -3px rgba(0, 0, 0, 0.5);
+    }
+    
 }
