@@ -2,7 +2,7 @@ const colors = require("tailwindcss/colors");
 module.exports = {
   mode: 'jit',
   purge: ['./index.html'],
-  darkMode: 'media',
+  darkMode: 'class',
   theme: {
     fontFamily: {
       sans: "poppins, sans-serif",

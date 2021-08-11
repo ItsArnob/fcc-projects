@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html class="h-full">
+<html lang="en" class="h-full">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Vue 3 - get started</title>
         <meta
             name="description"
             content="Get started with vue 3, setup tailwindCSS & use vite dev server with nodeJS."
@@ -15,6 +14,18 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="/fcc-projects/css/technical-doc.css" />
+        <title>Vue 3 - get started</title>
+        <script>
+            if (
+                localStorage.theme === "dark" ||
+                (!("theme" in localStorage) &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches)
+            ) {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+        </script>
     </head>
     <body
         class="
@@ -25,35 +36,104 @@
             h-full
         "
     >
-        <nav
-            id="navbar"
-            class="
-                border-r border-gray-400 border-opacity-30
-                h-full
-                flex flex-col
-                pt-12
-            "
-        >
+        <nav id="navbar" class="h-full flex flex-col pt-12">
             <header
                 class="
                     bg-white
                     border-gray-400 border-opacity-30
                     text-2xl
                     dark:bg-gray-800
-                    border-b
+                    border-b-2
                     fixed
                     top-0
                     left-0
                     w-full
-                    p-2
-                    text-center text-gray-700
+                    py-2
+                    px-12
+                    text-center
+                    ext-gray-700
                     dark:text-white
                     font-semibold
+                    flex
+                    items-center
                 "
             >
-                Vue 3 Guide
+                <button class="md:hidden" onclick="toggleNav()">
+                    <svg
+                        id="openSvg"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"
+                        /></svg
+                    ><svg
+                        id="closeSvg"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 hidden"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12"
+                        />
+                    </svg>
+                </button>
+                <h1 class="mx-auto">Vue 3 Guide</h1>
+                <button
+                    class="rounded-full p-1 bg-gray-700 dark:bg-gray-500"
+                    onclick="changeTheme()"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="hidden w-6 dark:block"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                            clip-rule="evenodd"
+                        />
+                    </svg>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="w-6 text-white block dark:hidden"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                    >
+                        <path
+                            d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                        />
+                    </svg>
+                </button>
             </header>
-            <div class="h-full overflow-y-auto">
+            <div
+                id="navContainer"
+                class="
+                    transition-all
+                    duration-500
+                    md:border-r-2
+                    border-gray-400 border-opacity-30
+                    bg-white
+                    dark:bg-gray-800
+                    h-full
+                    overflow-y-auto
+                    fixed
+                    w-0
+                    md:shadow-none md:w-auto md:static
+                "
+            >
                 <a
                     onclick="highlight(this, event)"
                     data-linked="introduction"
@@ -64,7 +144,6 @@
                 <a
                     onclick="highlight(this, event)"
                     data-linked="what_you_should_already_know"
-                    style="white-space: nowrap"
                     class="nav-link"
                     href="#what_you_should_already_know"
                     >What You Should Already Know</a
@@ -117,56 +196,239 @@
             <div id="sections" class="mt-12 h-full overflow-y-auto">
                 <section id="introduction" class="main-section">
                     <header>Introduction</header>
-                    <p class="p-6">test lorwm</p>
-                    <p class="p-6">test ipsum</p>
-                    <p class="p-6">w</p>
-                    <p class="p-6">a a aa</p>
-                    <p class="p-6">s s s</p>
-                    <p class="p-6">s e e</p>
-                    <p class="mt-36">d d e e</p>
-                    <p class="mt-36">e e e</p>
-                    <p>s e e e</p>
-                    <p>e e e e</p>
+                    <p class="p-6">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nulla tincidunt lectus a erat posuere condimentum. Proin
+                        nibh neque, malesuada sit amet tristique et, vehicula ut
+                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
+                        et malesuada fames ac ante ipsum primis in faucibus. Ut
+                        at felis convallis, porttitor dolor in, bibendum sem.
+                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
+                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
+                        erat eget ligula. Praesent in elit elementum, tristique
+                        est pretium, fringilla augue.
+                    </p>
+                    <p class="p-6">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nulla tincidunt lectus a erat posuere condimentum. Proin
+                        nibh neque, malesuada sit amet tristique et, vehicula ut
+                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
+                        et malesuada fames ac ante ipsum primis in faucibus. Ut
+                        at felis convallis, porttitor dolor in, bibendum sem.
+                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
+                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
+                        erat eget ligula. Praesent in elit elementum, tristique
+                        est pretium, fringilla augue.
+                    </p>
+                    <code
+                        >Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Nulla tincidunt lectus a erat posuere condimentum.
+                        Proin nibh neque, malesuada sit amet tristique et,
+                        vehicula ut neque. Sed ultricies sagittis leo eu
+                        lobortis. Interdum et malesuada fames ac ante ipsum
+                        primis in faucibus. Ut at felis convallis, porttitor
+                        dolor in, bibendum sem. Sed non vestibulum nisl. Sed
+                        rhoncus, arcu nec varius pulvinar, urna sapien faucibus
+                        nulla, quis feugiat nibh erat eget ligula. Praesent in
+                        elit elementum, tristique est pretium, fringilla
+                        augue</code
+                    >
                 </section>
                 <section id="what_you_should_already_know" class="main-section">
                     <header>What You Should Already Know</header>
-                    <code>keke ekek</code>
-                    <code> kek </code>
-                    <code> h </code>
-                    <code>h </code>
-                    <code>eee</code>
+                    <code
+                        >Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Nulla tincidunt lectus a erat posuere condimentum.
+                        Proin nibh neque, malesuada sit amet tristique et,
+                        vehicula ut neque. Sed ultricies sagittis leo eu
+                        lobortis. Interdum et malesuada fames ac ante ipsum
+                        primis in faucibus. Ut at felis convallis, porttitor
+                        dolor in, bibendum sem. Sed non vestibulum nisl. Sed
+                        rhoncus, arcu nec varius pulvinar, urna sapien faucibus
+                        nulla, quis feugiat nibh erat eget ligula. Praesent in
+                        elit elementum, tristique est pretium, fringilla
+                        augue</code
+                    >
+                    <code>npm install vue</code>
                 </section>
                 <section id="installation_and_setup" class="main-section">
                     <header>Installation And Setup</header>
                     <ul>
-                        <li>a</li>
-                        <li>b</li>
-                        <li>c</li>
-                        <li>d</li>
-                        <li>e</li>
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
                     </ul>
+                    <code
+                        >Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Nulla tincidunt lectus a erat posuere condimentum.
+                        Proin nibh neque, malesuada sit amet tristique et,
+                        vehicula ut neque. Sed ultricies sagittis leo eu
+                        lobortis. Interdum et malesuada fames ac ante ipsum
+                        primis in faucibus. Ut at felis convallis, porttitor
+                        dolor in, bibendum sem. Sed non vestibulum nisl. Sed
+                        rhoncus, arcu nec varius pulvinar, urna sapien faucibus
+                        nulla, quis feugiat nibh erat eget ligula. Praesent in
+                        elit elementum, tristique est pretium, fringilla
+                        augue</code
+                    >
                 </section>
                 <section
                     id="understanding_the_boilerplate"
                     class="main-section"
                 >
                     <header>Understanding The Boilerplate</header>
+                    <p class="p-6">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nulla tincidunt lectus a erat posuere condimentum. Proin
+                        nibh neque, malesuada sit amet tristique et, vehicula ut
+                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
+                        et malesuada fames ac ante ipsum primis in faucibus. Ut
+                        at felis convallis, porttitor dolor in, bibendum sem.
+                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
+                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
+                        erat eget ligula. Praesent in elit elementum, tristique
+                        est pretium, fringilla augue.
+                    </p>
+                    <p class="p-6">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nulla tincidunt lectus a erat posuere condimentum. Proin
+                        nibh neque, malesuada sit amet tristique et, vehicula ut
+                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
+                        et malesuada fames ac ante ipsum primis in faucibus. Ut
+                        at felis convallis, porttitor dolor in, bibendum sem.
+                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
+                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
+                        erat eget ligula. Praesent in elit elementum, tristique
+                        est pretium, fringilla augue.
+                    </p>
                 </section>
                 <section id="declarative_rendering" class="main-section">
                     <header>Declarative Rendering</header>
+                    <p class="p-6">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nulla tincidunt lectus a erat posuere condimentum. Proin
+                        nibh neque, malesuada sit amet tristique et, vehicula ut
+                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
+                        et malesuada fames ac ante ipsum primis in faucibus. Ut
+                        at felis convallis, porttitor dolor in, bibendum sem.
+                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
+                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
+                        erat eget ligula. Praesent in elit elementum, tristique
+                        est pretium, fringilla augue.
+                    </p>
+                    <p class="p-6">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nulla tincidunt lectus a erat posuere condimentum. Proin
+                        nibh neque, malesuada sit amet tristique et, vehicula ut
+                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
+                        et malesuada fames ac ante ipsum primis in faucibus. Ut
+                        at felis convallis, porttitor dolor in, bibendum sem.
+                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
+                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
+                        erat eget ligula. Praesent in elit elementum, tristique
+                        est pretium, fringilla augue.
+                    </p>
                 </section>
                 <section id="handling_user_input" class="main-section">
                     <header>Handling User Input</header>
+                    <p class="p-6">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nulla tincidunt lectus a erat posuere condimentum. Proin
+                        nibh neque, malesuada sit amet tristique et, vehicula ut
+                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
+                        et malesuada fames ac ante ipsum primis in faucibus. Ut
+                        at felis convallis, porttitor dolor in, bibendum sem.
+                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
+                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
+                        erat eget ligula. Praesent in elit elementum, tristique
+                        est pretium, fringilla augue.
+                    </p>
+                    <p class="p-6">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nulla tincidunt lectus a erat posuere condimentum. Proin
+                        nibh neque, malesuada sit amet tristique et, vehicula ut
+                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
+                        et malesuada fames ac ante ipsum primis in faucibus. Ut
+                        at felis convallis, porttitor dolor in, bibendum sem.
+                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
+                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
+                        erat eget ligula. Praesent in elit elementum, tristique
+                        est pretium, fringilla augue.
+                    </p>
                 </section>
                 <section id="conditionals_and_loops" class="main-section">
                     <header>Conditionals And Loops</header>
+                    <p class="p-6">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nulla tincidunt lectus a erat posuere condimentum. Proin
+                        nibh neque, malesuada sit amet tristique et, vehicula ut
+                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
+                        et malesuada fames ac ante ipsum primis in faucibus. Ut
+                        at felis convallis, porttitor dolor in, bibendum sem.
+                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
+                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
+                        erat eget ligula. Praesent in elit elementum, tristique
+                        est pretium, fringilla augue.
+                    </p>
+                    <p class="p-6">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nulla tincidunt lectus a erat posuere condimentum. Proin
+                        nibh neque, malesuada sit amet tristique et, vehicula ut
+                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
+                        et malesuada fames ac ante ipsum primis in faucibus. Ut
+                        at felis convallis, porttitor dolor in, bibendum sem.
+                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
+                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
+                        erat eget ligula. Praesent in elit elementum, tristique
+                        est pretium, fringilla augue.
+                    </p>
                 </section>
                 <section id="using_vite_with_nodejs" class="main-section">
                     <header>Using Vite With NodeJS</header>
+                    <p class="p-6">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nulla tincidunt lectus a erat posuere condimentum. Proin
+                        nibh neque, malesuada sit amet tristique et, vehicula ut
+                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
+                        et malesuada fames ac ante ipsum primis in faucibus. Ut
+                        at felis convallis, porttitor dolor in, bibendum sem.
+                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
+                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
+                        erat eget ligula. Praesent in elit elementum, tristique
+                        est pretium, fringilla augue.
+                    </p>
+                    <p class="p-6">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nulla tincidunt lectus a erat posuere condimentum. Proin
+                        nibh neque, malesuada sit amet tristique et, vehicula ut
+                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
+                        et malesuada fames ac ante ipsum primis in faucibus. Ut
+                        at felis convallis, porttitor dolor in, bibendum sem.
+                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
+                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
+                        erat eget ligula. Praesent in elit elementum, tristique
+                        est pretium, fringilla augue.
+                    </p>
+                    <code
+                        >Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Nulla tincidunt lectus a erat posuere condimentum.
+                        Proin nibh neque, malesuada sit amet tristique et,
+                        vehicula ut neque. Sed ultricies sagittis leo eu
+                        lobortis. Interdum et malesuada fames ac ante ipsum
+                        primis in faucibus. Ut at felis convallis, porttitor
+                        dolor in, bibendum sem. Sed non vestibulum nisl. Sed
+                        rhoncus, arcu nec varius pulvinar, urna sapien faucibus
+                        nulla, quis feugiat nibh erat eget ligula. Praesent in
+                        elit elementum, tristique est pretium, fringilla
+                        augue</code
+                    >
                 </section>
             </div>
         </main>
-        <script defer>
+        <script>
+            let navOpened = false;
             if (!location.hash) {
                 location.hash = "introduction";
                 document
@@ -241,8 +503,48 @@
                     document.getElementById(el.getAttribute("data-linked"))
                 );
             }
+            function toggleNav() {
+                if (!navOpened) {
+                    document
+                        .getElementById("navContainer")
+                        .classList.add("navOpen");
+                    document.getElementById("openSvg").classList.add("hidden");
+                    document
+                        .getElementById("closeSvg")
+                        .classList.remove("hidden");
+                    navOpened = true;
+                } else {
+                    document
+                        .getElementById("navContainer")
+                        .classList.remove("navOpen");
+                    document
+                        .getElementById("openSvg")
+                        .classList.remove("hidden");
+                    document.getElementById("closeSvg").classList.add("hidden");
+                    navOpened = false;
+                }
+            }
+            function changeTheme() {
+                /* CREDIT: https://paco.sh/blog/disable-theme-transitions */
+                const css = document.createElement("style");
+                css.type = "text/css";
+                css.appendChild(
+                    document.createTextNode(
+                        "* { transition: none !important; }"
+                    )
+                );
+                document.head.appendChild(css);
+                if (localStorage.theme == "dark") {
+                    document.documentElement.classList.remove("dark");
+                    localStorage.theme = "light";
+                } else {
+                    document.documentElement.classList.add("dark");
+                    localStorage.theme = "dark";
+                }
+                window.getComputedStyle(css).opacity;
+                document.head.removeChild(css);
+            }
         </script>
-
         <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
     </body>
 </html>
