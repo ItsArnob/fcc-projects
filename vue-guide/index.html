@@ -30,8 +30,8 @@
     <body
         class="
             bg-white
-            text-gray-800
-            dark:bg-gray-800 dark:text-gray-200
+            text-gray-700
+            dark:bg-gray-800 dark:text-white
             flex
             h-full
         "
@@ -41,7 +41,7 @@
                 class="
                     bg-white
                     border-gray-400 border-opacity-30
-                    text-2xl
+                    text-3xl
                     dark:bg-gray-800
                     border-b-2
                     fixed
@@ -50,8 +50,7 @@
                     w-full
                     py-2
                     px-12
-                    text-center
-                    ext-gray-700
+                    text-center text-gray-700
                     dark:text-white
                     font-semibold
                     flex
@@ -137,16 +136,16 @@
                 <a
                     onclick="highlight(this, event)"
                     data-linked="introduction"
-                    class="nav-link mt-2"
+                    class="nav-link mt-4"
                     href="#introduction"
                     >Introduction</a
                 >
                 <a
                     onclick="highlight(this, event)"
-                    data-linked="what_you_should_already_know"
+                    data-linked="prerequisites"
                     class="nav-link"
-                    href="#what_you_should_already_know"
-                    >What You Should Already Know</a
+                    href="#prerequisites"
+                    >Prerequisites</a
                 >
                 <a
                     onclick="highlight(this, event)"
@@ -195,91 +194,224 @@
         <main id="main-doc" class="h-full w-full flex flex-col">
             <div id="sections" class="mt-12 h-full overflow-y-auto">
                 <section id="introduction" class="main-section">
-                    <header>Introduction</header>
-                    <p class="p-6">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla tincidunt lectus a erat posuere condimentum. Proin
-                        nibh neque, malesuada sit amet tristique et, vehicula ut
-                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
-                        et malesuada fames ac ante ipsum primis in faucibus. Ut
-                        at felis convallis, porttitor dolor in, bibendum sem.
-                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
-                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
-                        erat eget ligula. Praesent in elit elementum, tristique
-                        est pretium, fringilla augue.
+                    <header><h2>Introduction</h2></header>
+                    <h3>Overview</h3>
+                    <p>
+                        With this guide you'll be able to learn how to install
+                        vue and tailwindCSS with Vite, what Vue is and the
+                        basics of Vue. At the end we'll use vite with NodeJS to
+                        build a simple PLACEHOLDER app. Skip to the
+                        <a href="#using_vite_with_nodejs"
+                            >using Vite with NodeJS</a
+                        >
+                        section if you already understand Vue and Vite.
                     </p>
-                    <p class="p-6">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla tincidunt lectus a erat posuere condimentum. Proin
-                        nibh neque, malesuada sit amet tristique et, vehicula ut
-                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
-                        et malesuada fames ac ante ipsum primis in faucibus. Ut
-                        at felis convallis, porttitor dolor in, bibendum sem.
-                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
-                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
-                        erat eget ligula. Praesent in elit elementum, tristique
-                        est pretium, fringilla augue.
+                    <h3>What is Vue.js?</h3>
+                    <p>
+                        Vue (pronounced /vjuː/, like <strong>view</strong>) is a
+                        <strong>progressive framework</strong> for building user
+                        interfaces. Unlike other monolithic frameworks, Vue is
+                        designed from the ground up to be incrementally
+                        adoptable. The core library is focused on the view layer
+                        only, and is easy to pick up and integrate with other
+                        libraries or existing projects. On the other hand, Vue
+                        is also perfectly capable of powering sophisticated
+                        Single-Page Applications when used in combination with
+                        <a
+                            href="https://v3.vuejs.org/guide/single-file-component.html"
+                            target="_blank"
+                            >modern tooling</a
+                        >
+                        and
+                        <a
+                            href="https://github.com/vuejs/awesome-vue#components--libraries"
+                            target="_blank"
+                            >supporting libraries</a
+                        >. (<a
+                            href="https://v3.vuejs.org/guide/introduction.html#what-is-vue-js"
+                            target="_blank"
+                            >source</a
+                        >)
                     </p>
-                    <code
-                        >Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit. Nulla tincidunt lectus a erat posuere condimentum.
-                        Proin nibh neque, malesuada sit amet tristique et,
-                        vehicula ut neque. Sed ultricies sagittis leo eu
-                        lobortis. Interdum et malesuada fames ac ante ipsum
-                        primis in faucibus. Ut at felis convallis, porttitor
-                        dolor in, bibendum sem. Sed non vestibulum nisl. Sed
-                        rhoncus, arcu nec varius pulvinar, urna sapien faucibus
-                        nulla, quis feugiat nibh erat eget ligula. Praesent in
-                        elit elementum, tristique est pretium, fringilla
-                        augue</code
-                    >
-                </section>
-                <section id="what_you_should_already_know" class="main-section">
-                    <header>What You Should Already Know</header>
-                    <code
-                        >Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit. Nulla tincidunt lectus a erat posuere condimentum.
-                        Proin nibh neque, malesuada sit amet tristique et,
-                        vehicula ut neque. Sed ultricies sagittis leo eu
-                        lobortis. Interdum et malesuada fames ac ante ipsum
-                        primis in faucibus. Ut at felis convallis, porttitor
-                        dolor in, bibendum sem. Sed non vestibulum nisl. Sed
-                        rhoncus, arcu nec varius pulvinar, urna sapien faucibus
-                        nulla, quis feugiat nibh erat eget ligula. Praesent in
-                        elit elementum, tristique est pretium, fringilla
-                        augue</code
-                    >
-                    <code>npm install vue</code>
-                </section>
-                <section id="installation_and_setup" class="main-section">
-                    <header>Installation And Setup</header>
-                    <ul>
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
+                    <h3>What is Vite?</h3>
+                    <p>
+                        Vite (French word for "fast", pronounced /vit/) is a
+                        build tool that aims to provide a faster and leaner
+                        development experience for modern web projects. It
+                        consists of two major parts:
+                    </p>
+                    <ul class="list-disc ml-8 my-2">
+                        <li>
+                            A dev server that provides
+                            <a
+                                href="https://vitejs.dev/guide/features.html"
+                                target="_blank"
+                                >rich feature enhancements</a
+                            >
+                            over
+                            <a
+                                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules"
+                                target="_blank"
+                                >native ES modules</a
+                            >, for example extremely fast
+                            <a
+                                href="https://vitejs.dev/guide/features.html#hot-module-replacement"
+                                target="_blank"
+                                >Hot Module Replacement (HMR)</a
+                            >.
+                        </li>
+
+                        <li>
+                            A build command that bundles your code with
+                            <a href="https://rollupjs.org/" target="_blank"
+                                >Rollup</a
+                            >, pre-configured to output highly optimized static
+                            assets for production.
+                        </li>
                     </ul>
-                    <code
-                        >Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit. Nulla tincidunt lectus a erat posuere condimentum.
-                        Proin nibh neque, malesuada sit amet tristique et,
-                        vehicula ut neque. Sed ultricies sagittis leo eu
-                        lobortis. Interdum et malesuada fames ac ante ipsum
-                        primis in faucibus. Ut at felis convallis, porttitor
-                        dolor in, bibendum sem. Sed non vestibulum nisl. Sed
-                        rhoncus, arcu nec varius pulvinar, urna sapien faucibus
-                        nulla, quis feugiat nibh erat eget ligula. Praesent in
-                        elit elementum, tristique est pretium, fringilla
-                        augue</code
-                    >
+                    <p>
+                        Vite is opinionated and comes with sensible defaults out
+                        of the box, but is also highly extensible via its
+                        <a
+                            href="https://vitejs.dev/guide/api-plugin.html"
+                            target="_blank"
+                            >Plugin API</a
+                        >
+                        and
+                        <a
+                            href="https://vitejs.dev/guide/api-javascript.html"
+                            target="_blank"
+                            >JavaScript API</a
+                        >
+                        with full typing support.
+                    </p>
+                    <p class="mt-2">
+                        You can learn more about the rationale behind Vite in
+                        the
+                        <a
+                            href="https://vitejs.dev/guide/why.html"
+                            target="_blank"
+                            >Why Vite page</a
+                        >. (<a
+                            href="https://vitejs.dev/guide/#overview"
+                            target="_blank"
+                            >source</a
+                        >)
+                    </p>
+                    <h3>What is tailwindCSS?</h3>
+                    <p>TailwindCSS is a utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup. (<a href="https://tailwindcss.com/" target="_blank">source</a>)</p>
+                </section>
+                <section id="prerequisites" class="main-section">
+                    <header><h2>Prerequisites</h2></header>
+                    <h3>Setup</h3>
+                    <p>
+                        This guide assumes you have the latest version of
+                        <a href="https://nodejs.org" target="_blank">NodeJS</a>
+                        and npm (or yarn) installed. Using a code editor like
+                        <a href="https://code.visualstudio.com/" target="_blank"
+                            >VScode</a
+                        >
+                        is recommended.
+                    </p>
+                    <h3>Knowledge</h3>
+                    <p>
+                        This guide also assumes you have the following
+                        background:
+                    </p>
+
+                    <ul class="list-disc mt-2 ml-8">
+                        <li>
+                            Intermediate level knowledge of HTML, CSS, and
+                            JavaScript.
+                        </li>
+                        <li>Basic understanding of NodeJS and express.</li>
+                        <li>Optionally basic understanding of the terminal.</li>
+                    </ul>
+                </section>
+                <section id="installation_and_setup" class="main-section w-full">
+                    <header><h2>Installation And Setup</h2></header>
+                    <h3>Install Vue with Vite</h3>
+                    <p>
+                        We can easily scaffold a Vue project with Vite with the
+                        following command, this will create a project folder
+                        named vue-app:
+                    </p>
+                    <code>npm init vite@latest vue-app</code>
+                    <p>Or if you're using yarn:</p>
+                    <code>yarn create vite vue-app</code>
+                    <p>
+                        You should see the following, use your arrow keys as
+                        stated in the cli to select Vue and press enter:
+                    </p>
+                    <code>? Select a framework: › - Use arrow-keys. Return to submit.
+vanilla
+❯ vue
+react
+preact
+lit-element
+svelte</code>
+                    <p>
+                        Again, use your arrow keys to select vue and press
+                        enter:
+                    </p>
+                    <code>✔ Select a framework: › vue
+? Select a variant: › - Use arrow-keys. Return to submit.
+❯ vue
+vue-ts</code>
+                    <p>And with that we've scaffoled our project! Now we'll install the dependencies, run the following: </p>
+                    <code>cd vue-app && npm install</code>
+                    <p>Or with yarn:</p>
+                    <code>cd vue-app && yarn install</code>
+                    <p>And we're done installing Vue! Next we'll install tailwindCSS.</p>
+                    <h3>Install and setup tailwindCSS</h3>
+                    <p>Install tailwindCSS and its dependencies with the following command:</p>
+                    <code>npm install -D tailwindcss@latest postcss@latest autoprefixer@latest</code>
+                    <p>Or with yarn: </p>
+                    <code>yarn add -D tailwindcss@latest postcss@latest autoprefixer@latest</code>
+                    <p>Next, we'll create the config files:</p>
+                    <code>npx tailwindcss init -p</code>
+                    <p>Or with yarn:</p>
+                    <code>yarn tailwindcss init -p</code>
+                    <p>We'll edit our tailwind.config.js file and replace the "purge" field with the following: </p>
+                    <code>purge: ['./index.html', './src/**/*.{vue,js}']</code>
+                    <p>It should look like this:</p>
+                    <code>module.exports = {
+  purge: ['./index.html', './src/**/*.{vue,js}'],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+}</code>
+                    <p>With that tailwindCSS can tree-shake unused styles in production builds by reading your code in the src directory/index.html file.</p>
+                    <p>We're almost there! all we need to do now is import tailwindCSS in our app, for that we'll create a index.css file in src/assets folder and add the following in it: </p>
+                    <code>@tailwind base;
+@tailwind components;
+@tailwind utilities;
+</code>
+                <p>And in src/main.js:</p>
+                <code>import './assets/index.css'</code>
+                <p>Your src/main.js file should look like this now: </p>
+                <code>import { createApp } from 'vue'
+import App from './App.vue'
+import './assets/index.css'
+
+createApp(App).mount('#app')</code>
+                <p>And we're done! Now start up the dev server by running:</p>
+                <code>npm run dev</code>
+                <p>Or with yarn:</p>
+                <code>yarn dev</code>
+                <p>If you're wondering why the Vue icon isn't centered or the counter button doesn't look like a default button - its because tailwindCSS removed their base styles to smooth over cross-browser inconsistencies.</p>
                 </section>
                 <section
                     id="understanding_the_boilerplate"
                     class="main-section"
                 >
-                    <header>Understanding The Boilerplate</header>
-                    <p class="p-6">
+                    <header><h2>Understanding The Boilerplate</h2></header>
+                    <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Nulla tincidunt lectus a erat posuere condimentum. Proin
                         nibh neque, malesuada sit amet tristique et, vehicula ut
@@ -291,7 +423,7 @@
                         erat eget ligula. Praesent in elit elementum, tristique
                         est pretium, fringilla augue.
                     </p>
-                    <p class="p-6">
+                    <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Nulla tincidunt lectus a erat posuere condimentum. Proin
                         nibh neque, malesuada sit amet tristique et, vehicula ut
@@ -305,8 +437,8 @@
                     </p>
                 </section>
                 <section id="declarative_rendering" class="main-section">
-                    <header>Declarative Rendering</header>
-                    <p class="p-6">
+                    <header><h2>Declarative Rendering</h2></header>
+                    <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Nulla tincidunt lectus a erat posuere condimentum. Proin
                         nibh neque, malesuada sit amet tristique et, vehicula ut
@@ -318,7 +450,7 @@
                         erat eget ligula. Praesent in elit elementum, tristique
                         est pretium, fringilla augue.
                     </p>
-                    <p class="p-6">
+                    <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Nulla tincidunt lectus a erat posuere condimentum. Proin
                         nibh neque, malesuada sit amet tristique et, vehicula ut
@@ -332,8 +464,8 @@
                     </p>
                 </section>
                 <section id="handling_user_input" class="main-section">
-                    <header>Handling User Input</header>
-                    <p class="p-6">
+                    <header><h2>Handling User Input</h2></header>
+                    <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Nulla tincidunt lectus a erat posuere condimentum. Proin
                         nibh neque, malesuada sit amet tristique et, vehicula ut
@@ -345,7 +477,7 @@
                         erat eget ligula. Praesent in elit elementum, tristique
                         est pretium, fringilla augue.
                     </p>
-                    <p class="p-6">
+                    <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Nulla tincidunt lectus a erat posuere condimentum. Proin
                         nibh neque, malesuada sit amet tristique et, vehicula ut
@@ -359,8 +491,8 @@
                     </p>
                 </section>
                 <section id="conditionals_and_loops" class="main-section">
-                    <header>Conditionals And Loops</header>
-                    <p class="p-6">
+                    <header><h2>Conditionals And Loops</h2></header>
+                    <p >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Nulla tincidunt lectus a erat posuere condimentum. Proin
                         nibh neque, malesuada sit amet tristique et, vehicula ut
@@ -372,7 +504,7 @@
                         erat eget ligula. Praesent in elit elementum, tristique
                         est pretium, fringilla augue.
                     </p>
-                    <p class="p-6">
+                    <p >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Nulla tincidunt lectus a erat posuere condimentum. Proin
                         nibh neque, malesuada sit amet tristique et, vehicula ut
@@ -386,8 +518,8 @@
                     </p>
                 </section>
                 <section id="using_vite_with_nodejs" class="main-section">
-                    <header>Using Vite With NodeJS</header>
-                    <p class="p-6">
+                    <header><h2>Using Vite With NodeJS</h2></header>
+                    <p >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Nulla tincidunt lectus a erat posuere condimentum. Proin
                         nibh neque, malesuada sit amet tristique et, vehicula ut
@@ -399,7 +531,7 @@
                         erat eget ligula. Praesent in elit elementum, tristique
                         est pretium, fringilla augue.
                     </p>
-                    <p class="p-6">
+                    <p >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Nulla tincidunt lectus a erat posuere condimentum. Proin
                         nibh neque, malesuada sit amet tristique et, vehicula ut
@@ -445,9 +577,7 @@
                     .setAttribute("id", "active");
                 document
                     .getElementById(location.hash.replace("#", ""))
-                    .scrollIntoView({
-                        behavior: "smooth",
-                    });
+                    .scrollIntoView();
             }
             /* credit: https://stackoverflow.com/a/58981159/16038792 */
             const observer = new window.IntersectionObserver(
@@ -537,16 +667,17 @@
                 if (localStorage.theme == "dark") {
                     document.documentElement.classList.remove("dark");
                     localStorage.theme = "light";
-                } else if(localStorage.theme == "light") {
+                } else if (localStorage.theme == "light") {
                     document.documentElement.classList.add("dark");
                     localStorage.theme = "dark";
-                }
-                else {
-                    if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                } else {
+                    if (
+                        window.matchMedia("(prefers-color-scheme: dark)")
+                            .matches
+                    ) {
                         document.documentElement.classList.remove("dark");
                         localStorage.theme = "light";
-                    }
-                    else {
+                    } else {
                         document.documentElement.classList.add("dark");
                         localStorage.theme = "dark";
                     }
