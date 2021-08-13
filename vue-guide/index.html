@@ -573,6 +573,7 @@ vue-ts</code>
             </div>
         </main>
         <script>
+        
             let navOpened = false;
             if (!location.hash) {
                 location.hash = "introduction";
@@ -592,6 +593,7 @@ vue-ts</code>
                     .getElementById(location.hash.replace("#", ""))
                     .scrollIntoView();
             }
+            
             /* credit: https://stackoverflow.com/a/58981159/16038792 */
             const observer = new window.IntersectionObserver(
                 ([entry], observer) => {
@@ -632,6 +634,7 @@ vue-ts</code>
                     threshold: 0,
                 }
             );
+            
             setTimeout(() => {
                 observer.observe(
                     document.getElementById(location.hash.replace("#", ""))
@@ -642,7 +645,9 @@ vue-ts</code>
                 observer.disconnect();
                 document.querySelector("#active").setAttribute("id", "");
                 el.setAttribute("id", "active");
-                observer.observe( document.getElementById(el.getAttribute("data-linked")));
+                observer.observe(
+                    document.getElementById(el.getAttribute("data-linked"))
+                );
             }
             
             function toggleNav() {
@@ -666,12 +671,9 @@ vue-ts</code>
                     navOpened = false;
                 }
             }
+            
             function changeTheme() {
-                /* CREDIT: https://paco.sh/blog/disable-theme-transitions */
-                const css = document.createElement("style");
-                css.type = "text/css";
-                css.appendChild( document.createTextNode("* { transition: none !important; }"));
-                document.head.appendChild(css);
+            
                 if (localStorage.theme == "dark") {
                     document.documentElement.classList.remove("dark");
                     localStorage.theme = "light";
@@ -687,8 +689,6 @@ vue-ts</code>
                         localStorage.theme = "dark";
                     }
                 }
-                window.getComputedStyle(css).opacity;
-                document.head.removeChild(css);
             }
         </script>
         <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
