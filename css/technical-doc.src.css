@@ -33,3 +33,12 @@
         @apply bg-gray-200 dark:bg-gray-900 dark:text-gray-200 p-3 inline-block rounded-md my-2 whitespace-pre-wrap break-all;       
     }
 }
+@layer utilities {
+    .list-spacing li {
+        @apply pb-2;
+    }
+    .inline-code {
+        @apply bg-gray-200 dark:bg-gray-900 dark:text-gray-200 px-2 rounded;
+    }
+    .ee { @apply min-w-0}
+}

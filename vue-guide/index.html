@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
             name="description"
-            content="Get started with vue 3, setup tailwindCSS & use vite dev server with nodeJS."
+            content="Get started with vue 3 & setup tailwindCSS with vite."
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -163,6 +163,13 @@
                 >
                 <a
                     onclick="highlight(this, event)"
+                    data-linked="single_file_components"
+                    class="nav-link"
+                    href="#single_file_components"
+                    >Single file Components</a
+                >
+                <a
+                    onclick="highlight(this, event)"
                     data-linked="declarative_rendering"
                     class="nav-link"
                     href="#declarative_rendering"
@@ -184,27 +191,29 @@
                 >
                 <a
                     onclick="highlight(this, event)"
-                    data-linked="using_vite_with_nodejs"
+                    data-linked="components_and_template_syntax"
                     class="nav-link mb-2"
-                    href="#using_vite_with_nodejs"
-                    >Using Vite With NodeJS</a
+                    href="#components_and_template_syntax"
+                    >Components and Template Syntax</a
+                >
+                <a
+                    onclick="highlight(this, event)"
+                    data-linked="references"
+                    class="nav-link mb-2"
+                    href="#references"
+                    >References</a
                 >
             </div>
         </nav>
-        <main id="main-doc" class="h-full w-full flex flex-col">
+        <main id="main-doc" class="h-full w-full flex min-w-0 flex-col">
             <div id="sections" class="mt-12 h-full overflow-y-auto">
                 <section id="introduction" class="main-section">
                     <header><h2>Introduction</h2></header>
                     <h3>Overview</h3>
                     <p>
                         With this guide you'll be able to learn how to install
-                        vue and tailwindCSS with Vite, what Vue is and the
-                        basics of Vue. At the end we'll use vite with NodeJS to
-                        build a simple PLACEHOLDER app. Skip to the
-                        <a href="#using_vite_with_nodejs"
-                            >using Vite with NodeJS</a
-                        >
-                        section if you already understand Vue and Vite.
+                        Vue and tailwindCSS with Vite, what Vue is and the
+                        basics of Vue.
                     </p>
                     <h3>What is Vue.js?</h3>
                     <p>
@@ -299,7 +308,7 @@
                         >)
                     </p>
                     <h3>What is tailwindCSS?</h3>
-                    <p>TailwindCSS is a utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup. (<a href="https://tailwindcss.com/" target="_blank">source</a>)</p>
+                    <p>TailwindCSS is a utility-first CSS framework packed with classes like <span class="inline-code">flex</span>, <span class="inline-code">pt-4</span>, <span class="inline-code">text-center</span> and <span class="inline-code">rotate-90</span> that can be composed to build any design, directly in your markup. (<a href="https://tailwindcss.com/" target="_blank">source</a>)</p>
                 </section>
                 <section id="prerequisites" class="main-section">
                     <header><h2>Prerequisites</h2></header>
@@ -372,190 +381,194 @@ vue-ts</code>
                     <code>npx tailwindcss init -p</code>
                     <p>Or with yarn:</p>
                     <code>yarn tailwindcss init -p</code>
-                    <p>We'll edit our tailwind.config.js file and replace the "purge" field with the following: </p>
+                    <p>We'll edit our tailwind.config.js file and replace the <span class="inline-code">purge</span> field with the following: </p>
                     <code>purge: ['./index.html', './src/**/*.{vue,js}']</code>
-                    <p>It should look like this:</p>
-                    <code>module.exports = {
-  purge: ['./index.html', './src/**/*.{vue,js}'],
-  darkMode: false, // or 'media' or 'class'
-  theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
-}</code>
-                    <p>With that tailwindCSS can tree-shake unused styles in production builds by reading your code in the src directory/index.html file.</p>
-                    <p>We're almost there! all we need to do now is import tailwindCSS in our app, for that we'll create a index.css file in src/assets folder and add the following in it: </p>
+                    <p class="mb-2">It should look like this:</p>
+                    <script src="https://gist.github.com/ea57a59327c134b696b95ceb313e9d81.js?file=tailwind.config.js"></script>
+                    <p>With that tailwindCSS can tree-shake unused styles in production builds by reading your code in the src directory and index.html file.</p>
+                    <p>We're almost there! all we need to do now is import tailwindCSS in our app, for that we'll create a <span class="inline-code">index.css</span> file in <span class="inline-code">src/assets</span> folder and add the following in it: </p>
                     <code>@tailwind base;
 @tailwind components;
 @tailwind utilities;
 </code>
-                <p>And in src/main.js:</p>
-                <code>import './assets/index.css'</code>
-                <p>Your src/main.js file should look like this now: </p>
-                <code>import { createApp } from 'vue'
-import App from './App.vue'
-import './assets/index.css'
-
-createApp(App).mount('#app')</code>
-                <p>And we're done! Now start up the dev server by running:</p>
-                <code>npm run dev</code>
-                <p>Or with yarn:</p>
-                <code>yarn dev</code>
-                <p>If you're wondering why the Vue icon isn't centered or the counter button doesn't look like a default button - its because tailwindCSS removed their base styles to smooth over cross-browser inconsistencies.</p>
+                    <p>And in <span class="inline-code">src/main.js</span>:</p>
+                    <code>import './assets/index.css'</code>
+                    <p class="mb-2">Your <span class="inline-code">src/main.js</span> file should look like this now: </p>
+                    <script src="https://gist.github.com/ea57a59327c134b696b95ceb313e9d81.js?file=main.js"></script>
+                    <p>And we're done! Now start up the dev server by running:</p>
+                    <code>npm run dev</code>
+                    <p>Or with yarn:</p>
+                    <code>yarn dev</code>
+                    <p>If you're wondering why the Vue icon isn't centered or the counter button doesn't look like a default button - its because tailwindCSS removed their base styles to smooth over cross-browser inconsistencies.</p>
+                    <p class="my-2">Delete the <span class="inline-code">src/components/HelloWorld.vue</span> and <span class="inline-code">src/assets/logo.png</span> file as we dont need the boilerplate code, also replace everything within <span class="inline-code">src/App.vue</span> with:</p>
+                    <script src="https://gist.github.com/ea57a59327c134b696b95ceb313e9d81.js?file=App.vue"></script>
+                    <p>Save it, and you'll see vite automatically updated the content!</p>
                 </section>
                 <section
                     id="understanding_the_boilerplate"
                     class="main-section"
                 >
                     <header><h2>Understanding The Boilerplate</h2></header>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla tincidunt lectus a erat posuere condimentum. Proin
-                        nibh neque, malesuada sit amet tristique et, vehicula ut
-                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
-                        et malesuada fames ac ante ipsum primis in faucibus. Ut
-                        at felis convallis, porttitor dolor in, bibendum sem.
-                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
-                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
-                        erat eget ligula. Praesent in elit elementum, tristique
-                        est pretium, fringilla augue.
+                    <h3>Directory structure</h3>
+                    <p>Your directory structure should look like this:</p>
+<code>vue-app/
+├── node_modules
+├── public
+│   └── favicon.ico
+├── src
+│   ├── assets
+│   │   └── index.css
+│   ├── components
+│   ├── App.vue
+│   └── main.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── tailwind.config.js
+└── vite.config.js
+</code>
+                <h3>Understanding the folders</h3>
+                <p>Lets walkthrough the folders in our vue-app directory:</p>
+                <ul class="list-disc mt-2 ml-8 list-spacing">
+                    <li><span class="inline-code font-medium">node_modules</span> - This is where all your dependencies are installed.
+                    </li>
+                    <li>
+                        <span class="inline-code font-medium">public</span> - This is where you'll store your assets that aren't referenced in your source code or must retain the exact same file name (without hashing). Assets in this directory will be served at root path <span class="inline-code">/</span> during dev, and copied to the root of the dist directory as-is.
+                    </li>
+                    <li>
+                        <span class="inline-code font-medium">src</span> - This is where your entry file and other source code (e.g. components and pages) will be stored.
+                    </li>
+                    <li>
+                        <span class="inline-code font-medium">src/assets</span> - This is where you'll store assets/css that you'll import into your source code, file names will get hashed when built like <span class="inline-code">index.cc6b0949.css</span>.
+                    </li>
+                    <li>
+                        <span class="inline-code font-medium">src/components</span> - This is where you'll store your <span class="inline-code">.vue</span> components. Components are reusable instances and they accept the same options as a root instance, such as <span class="inline-code">data</span>, <span class="inline-code">computed</span>, <span class="inline-code">watch</span>, <span class="inline-code">methods</span>, and lifecycle hooks.          
+                    </li>
+                </ul>
+                <h3>Understanding the files</h3>
+                <p>Lets walkthrough the files in our vue-app directory:</p>
+                <ul class="list-disc mt-2 ml-8 list-spacing">
+                    <li>
+                        <span class="inline-code font-medium">public/favicon.ico</span> - This is the default favicon icon Vite's Vue template comes with.
+                    </li>
+                    <li>
+                        <span class="inline-code font-medium">src/assets/index.css</span> - This is the css file we created in <a href="#installation_and_setup">the setup section</a>. Tailwind will inject its css as defined by the <span class="inline-code">@tailwind</span> directive.
+                    </li>
+                    <li>
+                        <span class="inline-code font-medium">src/App.vue</span> - This is the root component, basically the starting point for your app.
+                    </li>
+                    <li>
+                        <span class="inline-code font-medium">src/main.js</span> - This is where you'll import Vue, mount the root component to the dom, add Vue router, vuex etc.<br> In there we are importing the <span class="inline-code">createApp</span> function from vue, our css and the root component. Then we use the function to mount the root component on the div with id <span class="inline-code">app</span> defined in <span class="inline-code">index.html</span>.
+                    </li>
+                    <li>
+                        <span class="inline-code font-medium">index.html</span> - You can see a div with an id <span class="inline-code">app</span> this is where vue will mount the app. Edit it to include your apps title, description, anything you'd do in a html file.
+                    </li>
+                    <li>
+                        <span class="inline-code font-medium"> package.json</span>, <span class="inline-code font-medium">package-lock.json</span> - You know what these are! they're of course used to manage your dependencies. You'll have <span class="inline-code">yarn.lock</span> instead of <span class="inline-code">package-lock.json</span> if you're using yarn.
+                    </li>
+                    <li><span class="inline-code font-medium">tailwind.config.js</span>, <span class="inline-code font-medium">postcss.config.js</span> - They are used to configure tailwindCSS and postCSS respectively. Learn more about <a href="https://tailwindcss.com/docs/configuration" target="_blank">tailwind's config file here</a>.
+                    </li>
+                    <li><span class="inline-code font-medium">vite.config.js</span> - Vite's config file. You can add plugins, pass config for rollup etc. here. Learn more about <a href="https://vitejs.dev/config/#configuring-vite" target="_blank">Vite's config file here</a>.
+                    </li>
+                </ul>
+                <p>Code you see below applies to <span class="inline-code">App.vue</span>.</p>
+                </section>
+                <section id="single_file_components" class="main-section">
+                    <header><h2>Single File Components</h2></header>
+                    <h3>Introduction</h3>
+                    <p class="mb-2"> Vue Single File Components (aka <span class="inline-code">*.vue</span> files, abbreviated as <strong>SFC</strong>) is a special file format that allows us to encapsulate the template, logic, and styling of a Vue component in a single file. The <span class="inline-code">App.vue</span> file you have in your <span class="inline-code">src</span> directory is a SFC! Here's an example SFC:
                     </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla tincidunt lectus a erat posuere condimentum. Proin
-                        nibh neque, malesuada sit amet tristique et, vehicula ut
-                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
-                        et malesuada fames ac ante ipsum primis in faucibus. Ut
-                        at felis convallis, porttitor dolor in, bibendum sem.
-                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
-                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
-                        erat eget ligula. Praesent in elit elementum, tristique
-                        est pretium, fringilla augue.
+                    <script src="https://gist.github.com/ea57a59327c134b696b95ceb313e9d81.js?file=Example_SFC.vue"></script>
+                    <p>As we can see, Vue SFC is a natural extension of the classic trio of HTML, CSS and JavaScript. Each <span class="inline-code">*.vue</span> file consists of three types of top-level language blocks: <span class="inline-code">&lt;template&gt;</span>, <span class="inline-code">&lt;script&gt;</span>, and <span class="inline-code"> &lt;style&gt;</span>:
                     </p>
+                    <ul class="list-disc mt-2 ml-8 list-spacing">
+                        <li>The <span class="inline-code">&lt;script&gt;</span> section is a standard JavaScript module. It should export a Vue component definition as its default export.</li>
+                        <li>The <span class="inline-code">&lt;template&gt;</span> section defines the component's template.</li>
+                        <li>The <span class="inline-code">&lt;style&gt;</span> section defines CSS associated with the component.</li>
+                    </ul>
+                    (<a href="https://v3.vuejs.org/guide/single-file-component.html#introduction" target="_blank">source</a>)
+                    <h3>How it works</h3>
+                    <p class="mb-2">Vue SFC is a framework-specific file format and must be pre-compiled by <a href="https://github.com/vuejs/vue-next/tree/master/packages/compiler-sfc" target="_blank">@vue/compiler-sfc</a> into standard JavaScript and CSS. A compiled SFC is a standard JavaScript (ES) module - which means with proper build setup you can import an SFC like a module:</p>
+                    <script src="https://gist.github.com/ea57a59327c134b696b95ceb313e9d81.js?file=Example_Import_SFC.vue"></script>
+                    (<a href="https://v3.vuejs.org/guide/single-file-component.html#how-it-works" target="_blank">source</a>)
+                    <h3>Why SFC</h3>
+                    <p>While SFCs require a build step, there are numerous #benefits in return:</p>
+                    <ul class="list-disc mt-2 ml-8 list-spacing">
+                        <li>Author modularized components using familiar HTML, CSS and JavaScript syntax.</li>
+                        <li>Pre-compiled templates</li>
+                        <li><a href="https://v3.vuejs.org/api/sfc-style" target="_blank">Component-scoped CSS</a></li>
+                        <li><a href="https://v3.vuejs.org/api/sfc-script-setup" target="_blank">More ergonomic syntax when working with Composition API</a></li>
+                        <li>More compile-time optimizations by cross-analyzing template and script</li>
+                        <li><a href="https://v3.vuejs.org/api/sfc-tooling.html#ide-support" target="_blank">IDE support</a> with auto-completion and type-checking for template expressions</li>
+                        <li>Out-of-the-box Hot-Module Replacement (HMR) support</li>
+                    </ul>
+                    (<a href="https://v3.vuejs.org/guide/single-file-component.html#why-sfc" target="_blank">source</a>)
                 </section>
                 <section id="declarative_rendering" class="main-section">
                     <header><h2>Declarative Rendering</h2></header>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla tincidunt lectus a erat posuere condimentum. Proin
-                        nibh neque, malesuada sit amet tristique et, vehicula ut
-                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
-                        et malesuada fames ac ante ipsum primis in faucibus. Ut
-                        at felis convallis, porttitor dolor in, bibendum sem.
-                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
-                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
-                        erat eget ligula. Praesent in elit elementum, tristique
-                        est pretium, fringilla augue.
+                    <p class="mt-6 mb-2">
+                        At the core of Vue.js is a system that enables us to declaratively render data to the DOM using straightforward template syntax:
                     </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla tincidunt lectus a erat posuere condimentum. Proin
-                        nibh neque, malesuada sit amet tristique et, vehicula ut
-                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
-                        et malesuada fames ac ante ipsum primis in faucibus. Ut
-                        at felis convallis, porttitor dolor in, bibendum sem.
-                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
-                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
-                        erat eget ligula. Praesent in elit elementum, tristique
-                        est pretium, fringilla augue.
-                    </p>
+                    
+                     <script src="https://gist.github.com/ea57a59327c134b696b95ceb313e9d81.js?file=Declarative_App.vue"></script>
+                   
+                    <p class="mb-2">We have already created our very first Vue app! This looks pretty similar to rendering a string template, but Vue has done a lot of work under the hood. The data and the DOM are now linked, and everything is now <strong>reactive</strong>. How do we know? Take a look at the example below where <span class="inline-code">counter</span> property increments every second and you will see how rendered DOM changes:</p>
+                    
+                <script src="https://gist.github.com/ea57a59327c134b696b95ceb313e9d81.js?file=Declarative_Interval_App.vue"></script>
+                <p class="mb-2">In addition to text interpolation, we can also bind element attributes like this:</p>
+                <script src="https://gist.github.com/ea57a59327c134b696b95ceb313e9d81.js?file=Declarative_Attribute_Binding_App.vue"></script>
+                <p>Here we're encountering something new. The <span class="inline-code">v-bind</span> attribute you're seeing is called a <strong>directive</strong>. Directives are prefixed with <span class="inline-code">v-</span> to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here we are basically saying <em>"keep this element's <span class="inline-code">title</span> attribute up-to-date with the <span class="inline-code">message</span> property on the current active instance."</em></p>
+                (<a href="https://v3.vuejs.org/guide/introduction.html#declarative-rendering" target="_blank">source</a>)
                 </section>
                 <section id="handling_user_input" class="main-section">
                     <header><h2>Handling User Input</h2></header>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla tincidunt lectus a erat posuere condimentum. Proin
-                        nibh neque, malesuada sit amet tristique et, vehicula ut
-                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
-                        et malesuada fames ac ante ipsum primis in faucibus. Ut
-                        at felis convallis, porttitor dolor in, bibendum sem.
-                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
-                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
-                        erat eget ligula. Praesent in elit elementum, tristique
-                        est pretium, fringilla augue.
+                    <p class="mt-6 mb-2">
+                        To let users interact with your app, we can use the <span class="inline-code">v-on</span> directive to attach event listeners that invoke methods on our instances:
                     </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla tincidunt lectus a erat posuere condimentum. Proin
-                        nibh neque, malesuada sit amet tristique et, vehicula ut
-                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
-                        et malesuada fames ac ante ipsum primis in faucibus. Ut
-                        at felis convallis, porttitor dolor in, bibendum sem.
-                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
-                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
-                        erat eget ligula. Praesent in elit elementum, tristique
-                        est pretium, fringilla augue.
-                    </p>
+                    <script src="https://gist.github.com/ea57a59327c134b696b95ceb313e9d81.js?file=User_Input_App.vue"></script>
+                    <p>Note that in this method we update the state of our app without touching the DOM - all DOM manipulations are handled by Vue, and the code you write is focused on the underlying logic.</p>
+
+                    <p class="mb-2"> Vue also provides the <span class="inline-code">v-model</span> directive that makes two-way binding between form input and app state a breeze:
+                    <script src="https://gist.github.com/ea57a59327c134b696b95ceb313e9d81.js?file=Two_Way_Binding_App.vue"></script>
+                    (<a href="https://v3.vuejs.org/guide/introduction.html#handling-user-input" target="_blank">source</a>)
                 </section>
                 <section id="conditionals_and_loops" class="main-section">
                     <header><h2>Conditionals And Loops</h2></header>
-                    <p >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla tincidunt lectus a erat posuere condimentum. Proin
-                        nibh neque, malesuada sit amet tristique et, vehicula ut
-                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
-                        et malesuada fames ac ante ipsum primis in faucibus. Ut
-                        at felis convallis, porttitor dolor in, bibendum sem.
-                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
-                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
-                        erat eget ligula. Praesent in elit elementum, tristique
-                        est pretium, fringilla augue.
-                    </p>
-                    <p >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla tincidunt lectus a erat posuere condimentum. Proin
-                        nibh neque, malesuada sit amet tristique et, vehicula ut
-                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
-                        et malesuada fames ac ante ipsum primis in faucibus. Ut
-                        at felis convallis, porttitor dolor in, bibendum sem.
-                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
-                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
-                        erat eget ligula. Praesent in elit elementum, tristique
-                        est pretium, fringilla augue.
-                    </p>
+                    <p class="mt-6 mb-2">It's easy to toggle the presence of an element, too:</p>
+
+                    <script src="https://gist.github.com/ea57a59327c134b696b95ceb313e9d81.js?file=Conditional_App.vue"></script>
+                    <p>This example demonstrates that we can bind data to not only text and attributes, but also the <strong>structure</strong> of the DOM. Moreover, Vue also provides a powerful transition effect system that can automatically apply <a href="https://v3.vuejs.org/guide/transitions-enterleave.html" target="_blank">transition effects</a> when elements are inserted/updated/removed by Vue.</p>
+                    <p>You can change <span class="inline-code">seen</span> from <span class="inline-code">true</span> to <span class="inline-code">false</span> in your code and you'll see that it doesn't render the text anymore.</p>
+                    <p class="mb-2">There are quite a few other directives, each with its own special functionality. For example, the <span class="inline-code">v-for</span> directive can be used to display a list of items using the data from an array:</p>
+                <script src="https://gist.github.com/ea57a59327c134b696b95ceb313e9d81.js?file=Loop_App.vue"></script>
+                (<a href="https://v3.vuejs.org/guide/introduction.html#conditionals-and-loops" target="_blank">source</a>)
                 </section>
-                <section id="using_vite_with_nodejs" class="main-section">
-                    <header><h2>Using Vite With NodeJS</h2></header>
-                    <p >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla tincidunt lectus a erat posuere condimentum. Proin
-                        nibh neque, malesuada sit amet tristique et, vehicula ut
-                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
-                        et malesuada fames ac ante ipsum primis in faucibus. Ut
-                        at felis convallis, porttitor dolor in, bibendum sem.
-                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
-                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
-                        erat eget ligula. Praesent in elit elementum, tristique
-                        est pretium, fringilla augue.
-                    </p>
-                    <p >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla tincidunt lectus a erat posuere condimentum. Proin
-                        nibh neque, malesuada sit amet tristique et, vehicula ut
-                        neque. Sed ultricies sagittis leo eu lobortis. Interdum
-                        et malesuada fames ac ante ipsum primis in faucibus. Ut
-                        at felis convallis, porttitor dolor in, bibendum sem.
-                        Sed non vestibulum nisl. Sed rhoncus, arcu nec varius
-                        pulvinar, urna sapien faucibus nulla, quis feugiat nibh
-                        erat eget ligula. Praesent in elit elementum, tristique
-                        est pretium, fringilla augue.
-                    </p>
-                    <code
-                        >Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit. Nulla tincidunt lectus a erat posuere condimentum.
-                        Proin nibh neque, malesuada sit amet tristique et,
-                        vehicula ut neque. Sed ultricies sagittis leo eu
-                        lobortis. Interdum et malesuada fames ac ante ipsum
-                        primis in faucibus. Ut at felis convallis, porttitor
-                        dolor in, bibendum sem. Sed non vestibulum nisl. Sed
-                        rhoncus, arcu nec varius pulvinar, urna sapien faucibus
-                        nulla, quis feugiat nibh erat eget ligula. Praesent in
-                        elit elementum, tristique est pretium, fringilla
-                        augue</code
-                    >
+                <section id="components_and_template_syntax" class="main-section">
+                    <header><h2>Components and Template Syntax</h2></header>
+                    <h3>Components</h3>
+                    <p>Learn more about components:</p>
+                    <ul class="list-disc mt-2 ml-8 list-spacing" >
+                        <li><a href="https://v3.vuejs.org/guide/introduction.html#composing-with-components" target="_blank">https://v3.vuejs.org/guide/introduction.html#composing-with-components</a>
+                        </li>
+                        <li> <a href="https://v3.vuejs.org/guide/component-basics.html" target="_blank"> https://v3.vuejs.org/guide/component-basics.html </a>
+                        </li>
+                        <li> <a href="https://v3.vuejs.org/guide/component-registration.html" target="_blank"> https://v3.vuejs.org/guide/component-registration.html</a>
+                        </li>
+                    </ul>
+                    <h3>Template syntax</h3>
+                    <p>Learn about <a href="https://v3.vuejs.org/guide/template-syntax.html" target="_blank"> template syntax here</a>.
+                </section>
+                <section id="references" class="main-section">
+                    <header><h2>References</h2></header>
+                    <ul class="my-6 list-disc ml-8 list-spacing"> 
+                        <li><a href="https://v3.vuejs.org" target="_blank">https://v3.vuejs.org</a>
+                        </li>
+                        <li><a href="https://vitejs.dev" target="_blank">https://vitejs.dev</a>
+                        </li>
+                        <li><a href="https://tailwindcss.com" target="_blank"> https://tailwindcss.com</a>
+                        </li>
+                    </ul>
                 </section>
             </div>
         </main>
@@ -629,10 +642,9 @@ createApp(App).mount('#app')</code>
                 observer.disconnect();
                 document.querySelector("#active").setAttribute("id", "");
                 el.setAttribute("id", "active");
-                observer.observe(
-                    document.getElementById(el.getAttribute("data-linked"))
-                );
+                observer.observe( document.getElementById(el.getAttribute("data-linked")));
             }
+            
             function toggleNav() {
                 if (!navOpened) {
                     document
@@ -658,11 +670,7 @@ createApp(App).mount('#app')</code>
                 /* CREDIT: https://paco.sh/blog/disable-theme-transitions */
                 const css = document.createElement("style");
                 css.type = "text/css";
-                css.appendChild(
-                    document.createTextNode(
-                        "* { transition: none !important; }"
-                    )
-                );
+                css.appendChild( document.createTextNode("* { transition: none !important; }"));
                 document.head.appendChild(css);
                 if (localStorage.theme == "dark") {
                     document.documentElement.classList.remove("dark");
@@ -671,10 +679,7 @@ createApp(App).mount('#app')</code>
                     document.documentElement.classList.add("dark");
                     localStorage.theme = "dark";
                 } else {
-                    if (
-                        window.matchMedia("(prefers-color-scheme: dark)")
-                            .matches
-                    ) {
+                    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
                         document.documentElement.classList.remove("dark");
                         localStorage.theme = "light";
                     } else {
